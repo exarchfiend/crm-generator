@@ -18,24 +18,24 @@ public class DaoTest {
 
         // 设置限制条件（要求id小于等于540）
         ConditionReqDto conditionReqDto = new ConditionReqDto();
-        conditionReqDto.setConditionCode("LessThanOrEqualTo");
+        conditionReqDto.setCondition("LessThanOrEqualTo");
         conditionReqDto.setValue(540);
         conditionReqDto.setProperty("id");
-        if (conditionReqDto.getConditionCode() != null) {
-            switch (conditionReqDto.getConditionCode()) {
-                case "IsNull", "IsNotNull" -> restrictions.or().noValue(conditionReqDto.getConditionCode(),
+        if (conditionReqDto.getCondition() != null) {
+            switch (conditionReqDto.getCondition()) {
+                case "IsNull", "IsNotNull" -> restrictions.or().noValue(conditionReqDto.getCondition(),
                         getProperty(conditionReqDto.getProperty()));
                 case "EqualTo", "LessThan", "NotEqualTo", "GreaterThan", "GreaterThanOrEqualTo", "LessThanOrEqualTo", "In", "NotIn" ->
-                        restrictions.or().singleValue(conditionReqDto.getConditionCode(),
+                        restrictions.or().singleValue(conditionReqDto.getCondition(),
                                 conditionReqDto.getValue(),
                                 getProperty(conditionReqDto.getProperty()),
                                 conditionReqDto.getProperty());
-                case "Between", "NotBetween" -> restrictions.or().betweenValue(conditionReqDto.getConditionCode(),
+                case "Between", "NotBetween" -> restrictions.or().betweenValue(conditionReqDto.getCondition(),
                         conditionReqDto.getValue(),
                         conditionReqDto.getSecondValue(),
                         getProperty(conditionReqDto.getProperty()),
                         conditionReqDto.getProperty());
-                case "Like", "NotLike" -> restrictions.or().singleStringValue(conditionReqDto.getConditionCode(),
+                case "Like", "NotLike" -> restrictions.or().singleStringValue(conditionReqDto.getCondition(),
                         conditionReqDto.getValue().toString(),
                         getProperty(conditionReqDto.getProperty()),
                         conditionReqDto.getProperty());

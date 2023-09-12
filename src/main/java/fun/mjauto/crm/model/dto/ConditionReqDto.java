@@ -7,7 +7,7 @@ public class ConditionReqDto {
     /**
      * 表示查询条件的字符串
      */
-    private String conditionCode = null;
+    private String condition = null;
     /**
      * 表示查询条件的值
      */

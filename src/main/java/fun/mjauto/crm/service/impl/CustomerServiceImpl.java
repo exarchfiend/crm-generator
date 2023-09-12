@@ -1,28 +1,24 @@
 package fun.mjauto.crm.service.impl;
 
+import fun.mjauto.crm.dao.CustomerMapper;
 import fun.mjauto.crm.model.Customer;
-import fun.mjauto.crm.model.dto.PageReqDto;
-import fun.mjauto.crm.model.dto.RankReqDto;
+import fun.mjauto.crm.model.dto.SelectDto;
 import fun.mjauto.crm.service.CustomerService;
+import fun.mjauto.crm.utils.TypeHandler;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
-    @Override
-    public List<Customer> selectPagingCustomers(PageReqDto page) {
-        return null;
-    }
+
+    @Autowired
+    CustomerMapper customerMapper;
 
     @Override
-    public List<Customer> selectPagingCustomers(RankReqDto rank) {
-        return null;
-    }
-
-    @Override
-    public List<Customer> selectRankCustomers(PageReqDto page, RankReqDto rank) {
-        return null;
+    public List<Customer> selectRankCustomers(SelectDto condition) {
+        return customerMapper.selectByExample(new TypeHandler().typeHandler(condition));
     }
 
     @Override

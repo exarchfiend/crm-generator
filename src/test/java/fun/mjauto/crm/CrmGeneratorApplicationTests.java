@@ -3,6 +3,7 @@ package fun.mjauto.crm;
 import fun.mjauto.crm.dao.CustomerMapper;
 import fun.mjauto.crm.model.Customer;
 import fun.mjauto.crm.model.Restrictions;
+import fun.mjauto.crm.service.CustomerService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,12 +15,16 @@ class CrmGeneratorApplicationTests {
 
     @Autowired
     private CustomerMapper customerMapper;
+    @Autowired
+    private CustomerService customerService;
 
     DaoTest daoTest = new DaoTest();
+    ServiceTest serviceTest = new ServiceTest();
 
     @Test
     void contextLoads() {
-        daoTest.test_paging(customerMapper);
+//        daoTest.test_paging(customerMapper);
+        serviceTest.test_paging(customerService);
     }
 
     @Test
