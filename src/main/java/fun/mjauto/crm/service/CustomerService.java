@@ -9,16 +9,9 @@ import java.util.List;
 
 public interface CustomerService {
     /**
-     * 排序后分页查询
+     * 条件,排序和分页组合查询
      *
      * @return 符合查询条件的行
      */
-    List<Customer> selectRankCustomers(SelectDto condition);
-
-    /**
-     * 按字段查询
-     *
-     * @return 符合查询条件的行
-     */
-    List<Customer> selectByCustomerKey(Customer customer);
+    List<Customer> selectCustomers(SelectDto condition);
 }
