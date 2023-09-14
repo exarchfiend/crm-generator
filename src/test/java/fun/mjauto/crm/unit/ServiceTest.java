@@ -1,8 +1,8 @@
 package fun.mjauto.crm.unit;
 
-import fun.mjauto.crm.model.vo.ConditionReqDto;
-import fun.mjauto.crm.model.vo.PageReqDto;
-import fun.mjauto.crm.model.vo.RankReqDto;
+import fun.mjauto.crm.model.dto.ConditionReqDto;
+import fun.mjauto.crm.model.dto.PageReqDto;
+import fun.mjauto.crm.model.dto.RankReqDto;
 import fun.mjauto.crm.model.dto.SelectDto;
 import fun.mjauto.crm.service.CustomerService;
 

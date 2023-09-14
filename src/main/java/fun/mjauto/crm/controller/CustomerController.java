@@ -1,5 +1,6 @@
 package fun.mjauto.crm.controller;
 
+import fun.mjauto.crm.model.dto.ConditionReqDto;
 import fun.mjauto.crm.model.po.Customer;
 import fun.mjauto.crm.model.dto.SelectDto;
 import fun.mjauto.crm.service.CustomerService;
@@ -21,5 +22,10 @@ public class CustomerController {
     @PostMapping("/select")
     public List<Customer> select(@RequestBody SelectDto condition) {
         return customerService.selectCustomers(condition);
+    }
+
+    @PostMapping("/selectNum")
+    public int select(@RequestBody ConditionReqDto condition) {
+        return 1;
     }
 }

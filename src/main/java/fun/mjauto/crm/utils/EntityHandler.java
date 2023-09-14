@@ -1,9 +1,9 @@
 package fun.mjauto.crm.utils;
 
 import fun.mjauto.crm.model.bo.Restrictions;
-import fun.mjauto.crm.model.vo.ConditionReqDto;
-import fun.mjauto.crm.model.vo.PageReqDto;
-import fun.mjauto.crm.model.vo.RankReqDto;
+import fun.mjauto.crm.model.dto.ConditionReqDto;
+import fun.mjauto.crm.model.dto.PageReqDto;
+import fun.mjauto.crm.model.dto.RankReqDto;
 import lombok.Getter;
 
 import java.util.List;

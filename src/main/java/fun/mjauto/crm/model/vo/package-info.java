@@ -1,0 +1,1 @@
+package fun.mjauto.crm.model.vo;
