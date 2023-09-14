@@ -1,8 +1,8 @@
-package fun.mjauto.crm;
+package fun.mjauto.crm.unit;
 
 import fun.mjauto.crm.dao.CustomerMapper;
-import fun.mjauto.crm.model.Customer;
-import fun.mjauto.crm.model.Restrictions;
+import fun.mjauto.crm.model.po.Customer;
+import fun.mjauto.crm.model.bo.Restrictions;
 
 import java.util.Arrays;
 

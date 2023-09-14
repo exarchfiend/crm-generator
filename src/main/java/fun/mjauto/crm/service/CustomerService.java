@@ -1,8 +1,6 @@
 package fun.mjauto.crm.service;
 
-import fun.mjauto.crm.model.Customer;
-import fun.mjauto.crm.model.dto.PageReqDto;
-import fun.mjauto.crm.model.dto.RankReqDto;
+import fun.mjauto.crm.model.po.Customer;
 import fun.mjauto.crm.model.dto.SelectDto;
 
 import java.util.List;

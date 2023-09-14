@@ -1,0 +1,21 @@
+server:
+  port: 9527
+#  ssl:
+#    enabled: true
+#    key-store: classpath:mjauto.fun.jks
+#    key-store-password: 895to15r1455
+#    key-store-type: jks
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/crm
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+mybatis:
+  type-aliases-package: fun.mjauto.crm.model
+  mapper-locations: classpath:mapper/*.xml

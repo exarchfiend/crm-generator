@@ -1,7 +1,7 @@
 package fun.mjauto.crm.service.impl;
 
 import fun.mjauto.crm.dao.CustomerMapper;
-import fun.mjauto.crm.model.Customer;
+import fun.mjauto.crm.model.po.Customer;
 import fun.mjauto.crm.model.dto.SelectDto;
 import fun.mjauto.crm.service.CustomerService;
 import fun.mjauto.crm.utils.impl.CustomerHandler;
