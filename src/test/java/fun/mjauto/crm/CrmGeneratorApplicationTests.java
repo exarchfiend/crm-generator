@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 @SpringBootTest
 class CrmGeneratorApplicationTests {
@@ -20,6 +21,8 @@ class CrmGeneratorApplicationTests {
 
     @Test
     void contextLoads() {
+        System.out.println(Arrays.asList(511, 512, 299));
+        System.out.println(Arrays.toString(new int[]{546, 547, 548}));
         new DaoTest(customerMapper);
     }
 

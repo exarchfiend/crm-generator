@@ -15,6 +15,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -29,12 +30,21 @@ public class CustomerSteps {
         // 登录验证
     }
 
-    @When("条件:{string},字段:{string},值一:{string},值二:{string}")
+    @When("字段:{string},条件:{string},值一:{string},值二:{string}")
     public void setConditions(String property, String condition, String value1, String value2) {
         if (!condition.isEmpty()) {
             ConditionReqDto conditionReqDto = new ConditionReqDto();
             conditionReqDto.setCondition(condition);
-            conditionReqDto.setValue(value1);
+            if(condition.equals("In") || condition.equals("NotIn")){
+                // 转换为整数数组
+                int[] intArray = Arrays.stream(value1.split(","))
+                        .map(String::trim)
+                        .mapToInt(Integer::parseInt)
+                        .toArray();
+                conditionReqDto.setValue(intArray);
+            }else {
+                conditionReqDto.setValue(value1);
+            }
             conditionReqDto.setSecondValue(value2);
             conditionReqDto.setProperty(property);
             this.selectDto.add(conditionReqDto);
@@ -59,7 +69,7 @@ public class CustomerSteps {
         this.selectDto.setRankReqDto(rankReqDto);
     }
 
-    @And("点击查询")
+    @And("点击获取客户信息")
     public void select() throws IOException {
         this.res = new HttpRequest("http://localhost:9527/customer/select").postJson(this.selectDto);
     }
@@ -71,5 +81,20 @@ public class CustomerSteps {
             System.out.println(row);
         }
         assertEquals(Integer.parseInt(res), customers.size());
+    }
+
+    @Then("返回行数,共{string}条")
+    public void returnDeleteRows(String res) {
+        assertEquals(res, this.res);
+    }
+
+    @And("点击获取客户人数")
+    public void selectCount() throws IOException {
+        this.res = new HttpRequest("http://localhost:9527/customer/selectCount").postJson(this.selectDto);
+    }
+
+    @And("点击删除客户信息")
+    public void deleteRows() throws IOException {
+        this.res = new HttpRequest("http://localhost:9527/customer/deleteRows").postJson(this.selectDto);
     }
 }
