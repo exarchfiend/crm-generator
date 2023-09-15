@@ -1,15 +1,13 @@
 package fun.mjauto.crm.utils.impl;
 
-import fun.mjauto.crm.model.dto.SelectDto;
+import fun.mjauto.crm.model.dto.CustomerReqDto;
 import fun.mjauto.crm.utils.EntityHandler;
 
 public class CustomerHandler extends EntityHandler{
 
-    public CustomerHandler(SelectDto condition) {
-        super();
+    public CustomerHandler(CustomerReqDto condition) {
+        super(condition);
         super.conditionsHandler(condition.getConditionList());
-        super. pagingHandler(condition.getPageReqDto());
-        super.rankHandler(condition.getRankReqDto());
     }
 
     @Override

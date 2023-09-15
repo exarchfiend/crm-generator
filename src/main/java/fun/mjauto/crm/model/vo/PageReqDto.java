@@ -1,4 +1,4 @@
-package fun.mjauto.crm.model.dto;
+package fun.mjauto.crm.model.vo;
 
 import lombok.Data;
 

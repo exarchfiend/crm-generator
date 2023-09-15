@@ -1,9 +1,10 @@
 package fun.mjauto.crm.utils;
 
 import fun.mjauto.crm.model.bo.Restrictions;
-import fun.mjauto.crm.model.dto.ConditionReqDto;
-import fun.mjauto.crm.model.dto.PageReqDto;
-import fun.mjauto.crm.model.dto.RankReqDto;
+import fun.mjauto.crm.model.dto.CustomerReqDto;
+import fun.mjauto.crm.model.vo.ConditionReqDto;
+import fun.mjauto.crm.model.vo.PageReqDto;
+import fun.mjauto.crm.model.vo.RankReqDto;
 import lombok.Getter;
 
 import java.util.List;
@@ -13,8 +14,12 @@ public abstract class EntityHandler {
 
     public final Restrictions restrictions;
 
-    public EntityHandler() {
+    public EntityHandler(CustomerReqDto condition) {
         this.restrictions = new Restrictions();
+        if (condition.isSelect()) {
+            pagingHandler(condition.getPageReqDto());
+            rankHandler(condition.getRankReqDto());
+        }
     }
 
     public abstract String getProperty(String property);
